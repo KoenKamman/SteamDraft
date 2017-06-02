@@ -7,6 +7,7 @@ import android.util.Log;
 
 public class MainActivity extends AppCompatActivity {
     static final int STEAMID_REQUEST = 1;
+    private static final String API_KEY = BuildConfig.API_KEY;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
