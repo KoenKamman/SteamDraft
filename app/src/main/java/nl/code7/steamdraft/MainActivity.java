@@ -21,12 +21,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
-        if (requestCode == STEAMID_REQUEST) {
-
-            if (resultCode == RESULT_OK) {
+        if (requestCode == STEAMID_REQUEST && resultCode == RESULT_OK) {
                 String steamId = data.getExtras().getString("STEAM_ID");
                 Log.i("STEAMAUTH", "STEAM_ID = " + steamId);
-            }
         }
     }
 }
