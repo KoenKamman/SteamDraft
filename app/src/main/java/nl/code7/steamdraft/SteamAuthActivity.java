@@ -10,7 +10,7 @@ import android.webkit.WebViewClient;
 
 public class SteamAuthActivity extends AppCompatActivity {
 
-    private static final String realmParam = "SteamDraft";
+    private static final String REALM_PARAM = "SteamDraft";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +26,7 @@ public class SteamAuthActivity extends AppCompatActivity {
 
                 Uri uri = Uri.parse(url);
 
-                if (uri.getAuthority().equalsIgnoreCase(realmParam)) {
+                if (uri.getAuthority().equalsIgnoreCase(REALM_PARAM)) {
 
                     webView.stopLoading();
 
@@ -50,8 +50,8 @@ public class SteamAuthActivity extends AppCompatActivity {
                 "openid.identity=http://specs.openid.net/auth/2.0/identifier_select&" +
                 "openid.mode=checkid_setup&" +
                 "openid.ns=http://specs.openid.net/auth/2.0&" +
-                "openid.realm=https://" + realmParam + "&" +
-                "openid.return_to=https://" + realmParam + "/signin/";
+                "openid.realm=https://" + REALM_PARAM + "&" +
+                "openid.return_to=https://" + REALM_PARAM + "/signin/";
 
         webView.loadUrl(url);
 
