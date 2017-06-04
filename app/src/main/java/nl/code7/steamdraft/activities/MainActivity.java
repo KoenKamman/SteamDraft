@@ -1,13 +1,14 @@
-package nl.code7.steamdraft;
+package nl.code7.steamdraft.activities;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
+import nl.code7.steamdraft.R;
+
 public class MainActivity extends AppCompatActivity {
     static final int STEAMID_REQUEST = 1;
-    private static final String API_KEY = BuildConfig.API_KEY;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,8 +23,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
         if (requestCode == STEAMID_REQUEST && resultCode == RESULT_OK) {
-                String steamId = data.getExtras().getString("STEAM_ID");
-                Log.i("STEAMAUTH", "STEAM_ID = " + steamId);
+            Intent i = new Intent(getApplicationContext(), UserSummaryActivity.class);
+            i.putExtras(data.getExtras());
+            startActivity(i);
         }
     }
 }

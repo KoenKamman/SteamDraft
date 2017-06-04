@@ -1,4 +1,4 @@
-package nl.code7.steamdraft;
+package nl.code7.steamdraft.dao;
 
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -6,9 +6,26 @@ import android.os.Parcelable;
 
 public class User implements Parcelable{
 
-    private long steamID, lastLogoff, primaryClanID, timeCreated;
-    private int personaState, communityVisibilityState, profileState, gameID, locCityID;
-    private String personaName, profileUrl, avatar, avatarMedium, avatarFull, realName, gameExtraInfo, locCountryCode, locStateCode;
+    private long steamID;
+    private long lastLogoff;
+    private long primaryClanID;
+    private long timeCreated;
+    private long locCityID;
+
+    private int personaState;
+    private int communityVisibilityState;
+    private int profileState;
+    private int gameID;
+
+    private String personaName;
+    private String profileUrl;
+    private String avatar;
+    private String avatarMedium;
+    private String avatarFull;
+    private String realName;
+    private String gameExtraInfo;
+    private String locCountryCode;
+    private String locStateCode;
 
     public User() {
         steamID = -1;
@@ -40,7 +57,7 @@ public class User implements Parcelable{
         communityVisibilityState = in.readInt();
         profileState = in.readInt();
         gameID = in.readInt();
-        locCityID = in.readInt();
+        locCityID = in.readLong();
         personaName = in.readString();
         profileUrl = in.readString();
         avatar = in.readString();
@@ -91,7 +108,7 @@ public class User implements Parcelable{
         out.writeInt(communityVisibilityState);
         out.writeInt(profileState);
         out.writeInt(gameID);
-        out.writeInt(locCityID);
+        out.writeLong(locCityID);
         out.writeString(personaName);
         out.writeString(profileUrl);
         out.writeString(avatar);
@@ -116,8 +133,6 @@ public class User implements Parcelable{
         }
 
     };
-
-    //Getters & Setters
 
     public long getSteamID() {
         return steamID;
@@ -183,11 +198,11 @@ public class User implements Parcelable{
         this.gameID = gameID;
     }
 
-    public int getLocCityID() {
+    public long getLocCityID() {
         return locCityID;
     }
 
-    public void setLocCityID(int locCityID) {
+    public void setLocCityID(long locCityID) {
         this.locCityID = locCityID;
     }
 

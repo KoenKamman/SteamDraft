@@ -1,5 +1,6 @@
-package nl.code7.steamdraft;
+package nl.code7.steamdraft.activities;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -12,6 +13,7 @@ public class SteamAuthActivity extends AppCompatActivity {
 
     private static final String realmParam = "SteamDraft";
 
+    @SuppressLint("SetJavaScriptEnabled")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
