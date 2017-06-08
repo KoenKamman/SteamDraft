@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Intent intent = new Intent(this, SteamAuthActivity.class);
-        startActivityForResult(intent, STEAMID_REQUEST);
+        //startActivityForResult(intent, STEAMID_REQUEST);
     }
 
     @Override
