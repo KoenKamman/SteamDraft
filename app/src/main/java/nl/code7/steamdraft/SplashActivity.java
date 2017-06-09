@@ -14,6 +14,12 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
+        // Hide actionbar.
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().hide();
+        }
+
+        // Wait 10 seconds before launching intent.
         timer = new CountDownTimer(10000, 250) {
             @Override
             public void onTick(long millisUntilFinished) {
