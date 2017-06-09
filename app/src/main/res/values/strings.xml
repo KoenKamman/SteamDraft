@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">SteamDraft</string>
     <string name="title_activity_user_summary">UserSummaryActivity</string>
+    <string name="splashActivity_tv_LoadingText">Loading…</string>
 </resources>
