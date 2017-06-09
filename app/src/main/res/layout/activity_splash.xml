@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="nl.code7.steamdraft.SplashActivity">
+    tools:context="nl.code7.steamdraft.activities.SplashActivity">
 
     <ProgressBar
         android:id="@+id/progressBar"

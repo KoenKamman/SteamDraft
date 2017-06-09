@@ -1,9 +1,11 @@
-package nl.code7.steamdraft;
+package nl.code7.steamdraft.activities;
 
 import android.content.Intent;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import nl.code7.steamdraft.R;
 
 public class SplashActivity extends AppCompatActivity {
 
