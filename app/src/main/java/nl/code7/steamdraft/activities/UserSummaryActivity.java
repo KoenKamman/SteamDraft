@@ -10,7 +10,6 @@ import android.view.View;
 
 import java.util.ArrayList;
 
-import nl.code7.steamdraft.BuildConfig;
 import nl.code7.steamdraft.api.UserRequest;
 import nl.code7.steamdraft.dao.User;
 import nl.code7.steamdraft.R;
@@ -18,7 +17,6 @@ import nl.code7.steamdraft.api.ApiListener;
 
 public class UserSummaryActivity extends AppCompatActivity implements ApiListener {
 
-    private static final String API_KEY = BuildConfig.API_KEY;
     private static final String TAG = UserSummaryActivity.class.getName();
 
     @Override
@@ -39,7 +37,7 @@ public class UserSummaryActivity extends AppCompatActivity implements ApiListene
 
         String steamId = getIntent().getExtras().getString("STEAM_ID");
         UserRequest req = new UserRequest(getApplicationContext(), this);
-        req.getUsers();
+        req.getUser(steamId);
     }
 
     @Override

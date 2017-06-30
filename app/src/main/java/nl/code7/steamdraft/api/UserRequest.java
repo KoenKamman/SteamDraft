@@ -12,7 +12,12 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+
+import nl.code7.steamdraft.BuildConfig;
 import nl.code7.steamdraft.dao.User;
+
+import static android.text.TextUtils.join;
 
 /**
  * Created by Koen Kamman on 30-6-2017.
@@ -23,14 +28,23 @@ public class UserRequest {
     private final String TAG = UserRequest.class.getName();
     private Context ctx;
     private ApiListener listener;
+    private static final String API_KEY = BuildConfig.API_KEY;
+    private static final String BASE_URL = "http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=" + API_KEY + "&steamids=";
 
     public UserRequest(Context context, ApiListener listener) {
         this.listener = listener;
         ctx = context;
     }
 
-    public void getUsers() {
-        String url = "http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=03F72570107EDDE4CD1FC92CDD38CFAA&steamids=76561197960435530,76561197960435530";
+    public void getUser(String id) {
+        sendRequest(BASE_URL + id);
+    }
+
+    public void getUsers(ArrayList<String> ids) {
+        sendRequest(BASE_URL + join(",", ids));
+    }
+
+    private void sendRequest(String url) {
 
         JsonObjectRequest jsObjRequest = new JsonObjectRequest
                 (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
