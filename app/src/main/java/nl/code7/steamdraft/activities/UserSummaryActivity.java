@@ -1,5 +1,7 @@
 package nl.code7.steamdraft.activities;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -7,8 +9,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
-
-import java.util.ArrayList;
 
 import nl.code7.steamdraft.api.UserRequest;
 import nl.code7.steamdraft.dao.User;
@@ -35,7 +35,9 @@ public class UserSummaryActivity extends AppCompatActivity implements ApiListene
             }
         });
 
-        String steamId = getIntent().getExtras().getString("STEAM_ID");
+        SharedPreferences sharedPref = this.getSharedPreferences(getString(R.string.preference_file_key), Context.MODE_PRIVATE);
+
+        String steamId = sharedPref.getString("STEAM_ID", null);
         UserRequest req = new UserRequest(getApplicationContext(), this);
         req.getUser(steamId);
     }
