@@ -8,13 +8,15 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 
+import java.util.ArrayList;
+
 import nl.code7.steamdraft.BuildConfig;
+import nl.code7.steamdraft.api.UserRequest;
 import nl.code7.steamdraft.dao.User;
 import nl.code7.steamdraft.R;
-import nl.code7.steamdraft.api.SteamApiConnector;
-import nl.code7.steamdraft.api.SteamConnectorListener;
+import nl.code7.steamdraft.api.ApiListener;
 
-public class UserSummaryActivity extends AppCompatActivity implements SteamConnectorListener {
+public class UserSummaryActivity extends AppCompatActivity implements ApiListener {
 
     private static final String API_KEY = BuildConfig.API_KEY;
     private static final String TAG = UserSummaryActivity.class.getName();
@@ -36,13 +38,8 @@ public class UserSummaryActivity extends AppCompatActivity implements SteamConne
         });
 
         String steamId = getIntent().getExtras().getString("STEAM_ID");
-        getUser(steamId);
-    }
-
-    public void getUser(String id){
-        SteamApiConnector connector = new SteamApiConnector(this);
-        String[] urls = new String[] {"http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=" + API_KEY + "&steamids=" + id};
-        connector.execute(urls);
+        UserRequest req = new UserRequest(getApplicationContext(), this);
+        req.getUsers();
     }
 
     @Override
