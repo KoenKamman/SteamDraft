@@ -13,9 +13,8 @@ import android.view.View;
 import nl.code7.steamdraft.api.UserRequest;
 import nl.code7.steamdraft.dao.User;
 import nl.code7.steamdraft.R;
-import nl.code7.steamdraft.api.ApiListener;
 
-public class UserSummaryActivity extends AppCompatActivity implements ApiListener {
+public class UserSummaryActivity extends AppCompatActivity implements UserRequest.UserRequestListener {
 
     private static final String TAG = UserSummaryActivity.class.getName();
 

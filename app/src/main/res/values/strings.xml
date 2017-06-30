@@ -2,4 +2,5 @@
     <string name="app_name">SteamDraft</string>
     <string name="title_activity_user_summary">UserSummaryActivity</string>
     <string name="preference_file_key">SteamDraft_Preferences</string>
+    <string name="splashActivity_tv_LoadingText">Loading…</string>
 </resources>

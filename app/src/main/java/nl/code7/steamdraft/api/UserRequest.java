@@ -27,11 +27,11 @@ public class UserRequest {
 
     private final String TAG = UserRequest.class.getName();
     private Context ctx;
-    private ApiListener listener;
+    private UserRequestListener listener;
     private static final String API_KEY = BuildConfig.API_KEY;
     private static final String BASE_URL = "http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=" + API_KEY + "&steamids=";
 
-    public UserRequest(Context context, ApiListener listener) {
+    public UserRequest(Context context, UserRequestListener listener) {
         this.listener = listener;
         ctx = context;
     }
@@ -149,6 +149,10 @@ public class UserRequest {
                 });
 
         RequestQueueSingleton.getInstance(ctx).addToRequestQueue(jsObjRequest);
+    }
+
+    public interface UserRequestListener {
+        void onUserAvailable(User user);
     }
 
 }
